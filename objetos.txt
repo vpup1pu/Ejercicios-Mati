@@ -1,0 +1,67 @@
+creo que para entender el concepto de 'objeto' hay que nombrar dos tipo de objetos:
+
+objetos del problema:
+Es cualquier entidad del mundo real, esta puede ser un auto, una mesa, una puerta, etc.
+Cada una de estas entidades tiene caracteristicas y se puede realizar algo con ellas
+En este sentido un auto tiene, por ejemplo, una marca, un diseño, un tipo de motor, una 'x' cantidad maxima de combustible, una cantidad de ruedas, etc
+y la accion que se puede hacer es movilizarse de un lado a otro a traves del uso de combustible.
+Por otro lado una mesa puede tener una cierta forma, creada con cierto tipo de madera y en ella como accion se puede apoyar cosas, por ejemplo.
+
+Si notas cada una de las caracteristicas que te digo las mismas también son objetos (en estos casos, porque se podrian moldear), tienen sus propias caracteristicas y acciones.
+Entonces imaginate que hay que hacer un programa para la biblioteca de la uns
+quieren que se tenga un control de los libros que hay ahi y de quienes se llevaron los libros
+
+entonces se tendria los siguientes problemas a moldear:
+personas <- cada una tiene un dni, nombre, apellido, legajo, etc
+libros <- cada uno tiene un nombre, un codigo, etc
+fecha <- dia,mes y anio para saber cuando fue sacado
+
+ademas de que tenes que tener las siguientes acciones:
+alquilar un libro
+devolver un libro
+consultar un libro
+etc
+
+pero esto como lo pasas a un programa? es ahi donde se habla de objeto de software.
+
+objeto de software:
+Es cuando moldeas un objeto real a traves de atributos y metodos.
+Por ejemplo el objeto persona:
+Se crea una clase (una clase es como una plantilla en la que definis el comportamiento de ese objeto, eso seria definir sus atributos y sus metodos)
+llamada persona con los siguientes atributos:
+
+nombre de tipo string
+edad de tipo entero
+LU de tipo entero
+
+En javascript harias algo asi:
+
+// inicio de la clase persona
+function Persona(nombre,edad,LU){
+this.nombre = nombre;
+this.edad = edad;
+this.LU = LU; 
+
+this.alquilar = function(libro) { //libro seria otra clase donde se moldearia los atributos del libro y sus metodos
+...
+return puedeAlquilar;} //puedeAlquilar devuelve true o false si puedo alquilar ese libro
+
+this.devolver = function(libro){
+...
+return noHuboProblemas;} //noHuboProblemas devuelve true si se devolvio correctamente o false si hubo un problema
+}// fin de la clase
+
+para crear los atributos se utiliza this.nombreAtributo = algo
+
+para crear un metodo utilizo:
+this.nombreMetodo = function(){...}
+
+ahora con el tema de las funciones se menciona el uso de Prototype, la idea es que si yo creo un metodo con la forma normal:
+this.nombreMetodo = function(){...}
+
+cada vez que se crea un objeto tambien se va a crear en memoria esa funcion, entonces si creas 1000 objetos vas a tener que reservar en memoria 1000 funciones
+la idea del prototype es que si ahora tenes mil objetos y creaste un metodo con lo propiedad prototype, en memoria simplemente vas a tener una sola funcion
+y cada vez que se llame a esa funcion simplemente se activa de forma directa para todos los objetos
+
+
+

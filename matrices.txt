@@ -1,0 +1,115 @@
+Matrices y arrays:
+
+Nota inicial: Todas las matrices que usaremos van a ser matrices con la misma cantidad de filas y columnas
+ 
+Supongamos que se tiene la matriz M:
+    |1   2 | //FILA 1
+M = |3   4 | // FILA 2
+
+que contiene 2 filas y 2 columnas, pasa saber el valor de un elemento en la matriz hacemos:
+M_ij nos da el elemento, donde i corresponde a la fila y j a la columna, de este modo
+M_1,2 = 2, estamos obteniendo el valor de la matriz que corresponde a la fila 1 columna 2
+
+en Cs. de la computación una forma de representar matrices es a traves del uso de arrays:
+
+Arrays adentro de arrays:
+La idea es que en un array contendrá como elementos uno o mas arrays,
+ cada uno de estos elementos indicara la FILA de la matriz.
+Ahora, los elementos que representan a la filas como son arrays contendran elementos adentro,
+cada uno de estos elementos representara una columna.
+
+Como recorrer matrices?
+como las matrices no son mas que arreglos con elementos que son arreglos, la abstracción es igual
+que al recorrer un solo arreglo (debemos recorrer cada elemento).
+
+Supongamos que se quiere recorrer una matriz y mostrar por pantalla el valor de la matriz en cada posicion
+Si usaramos un solo for para hacer eso, cada vez que imprimamos por pantalla con: console.log(M[indice]) 
+simplemente devolveremos ese elemento de forma completa(imprimimos un array), esto es, [v1,v_i,v_i+1,...,vn] donde v es un valor cualquiera
+Para poder recorrer cada elemento v_i(v sub i) se debera usar otro for y este se debera encontrar anidado al for anterior
+de esta forma se ingresara a cada elemento del array
+
+Acceder a una posicion de un matriz
+Al igual que al inicio se hablo que con M_ij nos da el elemento, donde i es la fila y j es la columna
+para acceder a un elemento de la matriz deberemos usar la siguiente sentencia: 
+M[i][j] que nos devolvera el valor en la fila i y la columna j
+como se dijo antes si uso M[i] me devolvera un arreglo entero que contiene todos los valores de una fila
+
+    |1   2 | //FILA 1
+M = |3   4 | // FILA 2
+
+console.log(M[0][1]) corresponde con M_1,2 ya que los indices de los arreglos empieza en CERO 
+mostrará: 2
+
+console.log(M[0]) 
+mostrará: [1,2]
+
+Ejercicio 1: 
+Se tiene una funcion ya creada llamada recorrerMatriz(), que recibe como parametro una matriz.
+recorrerMatriz no debe implementarse, se asume que al invocarla muestra por pantalla los elementos
+que la contienen
+
+por ejemplo como salida de pantalla con la matriz M seria:
+1
+2
+3
+4
+
+nota: notar que hace un recorrido por filas, esto es recorre la primera fila y imprime todos los elementos que la componen 
+y luego pasa a la siguiente fila y repite el mismo proceso, hasta terminar de recorrer la matriz
+
+El ejercicio consiste en completar la variable matriz para que se muetre por pantalla la salida de la matriz.
+
+
+function recorrerMatriz(matriz){
+    ... //no importa como esta implementado
+}
+matriz = ...; // completar
+console.log(recorrerMatriz(matriz));
+
+salida:
+1
+2
+3
+4
+
+    */
+/*
+Ejercicio 2: 
+Crear una funcion llamada recorrerMatriz que imprimira por pantalla todos los elementos de la matriz
+contiene dos parametros, 
+matriz que corresponde a un arreglo que contiene arreglos como elementos
+fila corresponde a una variable booleana la cual si es true imprime los elementos recorriendo por fila 
+si es false imprime primero la columna 1, luego pasa a la columna 2 y asi sucesivamente
+
+Ejemplo:
+si : 
+    |1  2  3|
+M = |4  5  6| , fila = true
+    |7  8  9|
+
+console.log(recorrerMatriz(M,true)) //recorrido por filas
+Se debera mostrar por pantalla:
+1
+2
+3
+4
+5
+6
+
+si:
+    |1  2  3|
+M = |4  5  6| , fila = false
+    |7  8  9|
+
+Se debera mostrar por pantalla:
+
+1
+4
+7
+2
+5
+8
+3
+6
+9
+    */

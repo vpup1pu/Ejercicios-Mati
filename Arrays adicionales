@@ -161,8 +161,21 @@ function cambiarPrimos2(array) {
 //diferenciaParesEImpares([1,2,3,4,5,6]) //retorna -3
 //diferenciaParesEImpares([5]) //retorna 5
 
-function diferenciaParesEImpares(array) {
-    for (i = 0; i < array.length; i++) {
-
+function esPar(numero) {
+    var par = false;
+    if (numero % 2 === 0) {
+        par = true;
     }
+    return par;
+}
+
+function diferenciaParesEImpares(array) {
+    let valor = 0;
+    for (let i = 0; i < array.length; i++) {
+        if (esPar(i)) {
+            valor = valor + array[i];
+        }
+        else {valor = valor - array[i]}
+    }
+    return valor;
 }

@@ -7,6 +7,10 @@
 //1.Crear una funcion que se llame huboHeladas() que recibe como parametro de entrada un array con la
 // temperatura de 7 dias de la semana y que retorne true en el caso de que haya helado algun dia o false si 
 //no helo en toda la semana. Se considera que helo cuando la temperatura es menor o igual a cero.
+//ejemplos
+//huboHeladas([23,22,12,3,15,14,3])// retorna false
+//huboHeladas([3,2,1,0,15,14,3])// retorna true
+//huboHeladas([23,22,12,3,15,14,-3])// retorna true
 
 let temperatura = [];
 function huboHeladas(temperatura) {
@@ -21,6 +25,10 @@ function huboHeladas(temperatura) {
 //2. Crear una funcion que calcule el mayor dia de temperatura de la semana, esta funcion debe llamarse
 //mayorRegistroSemanal y recibe como parametro de entrada un arreglo de enteros (todos los elementos son
 //de tipo integer)
+//ejemplo
+//mayorRegistroSemanal([23,22,12,3,15,14,3])// retorna 23
+//mayorRegistroSemanal([6,8,4,2,12,3,10])// retorna 12
+//mayorRegistroSemanal([-5,-7,-2,-3,-6,-5,-3])// retorna -2
 
 function mayorRegistroSemanal(temperatura) {
     let mayor = temperatura[0];
@@ -34,6 +42,10 @@ function mayorRegistroSemanal(temperatura) {
 
 //3. Crear una funcion que devuelva cual fue la temperatura que mas se repitio en la semana, si no se 
 //repitio ningun dia devolver null, si dos o mas temperaturas se repiten, devolver la mas alta.
+//ejemplo
+//temperaturaRepetida([4,5,2,4,6,4,1])// retorna 4
+//temperaturaRepetida([0,1,2,3,4,5,6])// retorna null
+//temperaturaRepetida([3,3,6,4,6,4,2])// retorna 6 
 
 function temperaturaRepetida(temperatura) {
     let repetida = [];
@@ -72,7 +84,7 @@ function temperaturaRepetida(temperatura) {
 }
 
 
-//4. Juansito tomo el control del mundo y su primera orden fue eliminar a los numeros primos de cualquier
+//4. Juancito tomo el control del mundo y su primera orden fue eliminar a los numeros primos de cualquier
 //tipo de estructura de datos. Como desarrolladora del imperio en el departamento de array le fue asignada
 //esta tarea. En caso de negarse, sera acusada de traicion y eliminada.
 //Debe crear una funcion llamada cambiarPrimos() que recibe como parametro de entrada un arreglo de enteros
@@ -80,9 +92,77 @@ function temperaturaRepetida(temperatura) {
 //Asuma que:
 //Todos los elementos son mayor o igual a cero.
 //Debe evaluar si el nuevo elemento es primo
-//Gloria al gran rey supremo Juansito!
+//Gloria al gran rey supremo Juancito!
 
-function cambiarPrimos(){}
+//ejemplos
+//cambiarPrimos([1,2,3,4,5,6,7,8,9])// retorna [1,4,4,6,6,8,8,9]
+//cambiarPrimos([1,9,4])// retorna [1,9,4]
+//cambiarPrimos([1,2])// retorna [1,4]
 
+function esPrimo(numero) {
+    if (numero <=1) {
+        return false;
+    }
+    var primo = true;
+    for (let i = 2; i < numero && primo; i++) {
+        if (numero % i === 0) {
+            primo = false;
+        }
+    }
+    return primo;
+}
+
+let array = [];
+//como lo hizo Mati uwu
+function cambiarPrimos(array) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === 2) {
+            array[i] = 4;
+        }
+        if (esPrimo(array[i])) {
+            array[i]++
+        }
+    }
+    return array;
+}
+//como lo hizo Ainhi uwu
+
+function cambiarPrimos2(array) {
+    let noMasPrimos = [];
+    for (let i = 0; i < array.length; i++) {
+        if (!esPrimo(array[i])){
+            noMasPrimos.push(array[i]);
+        }
+        if (array[i] === 2) {
+            noMasPrimos.push(4);
+        }
+        else if (esPrimo(array[i])) {
+          noMasPrimos.push(++array[i]);
+        }
+    }
+    let j=0;
+     let sinPrimos = [];
+     while (j < noMasPrimos.length) {
+        if (esPrimo(noMasPrimos[j])) {
+           sinPrimos.push(noMasPrimos[j]++);
+        }
+        else sinPrimos.push(noMasPrimos[j]);
+        j++
+     }
+     return sinPrimos;
+ }
+ 
+ 
 //5. Crear una funcion que reciba un arreglo de enteros, suma si la posicion del elemento es par y resta si
 //la posicion del elemento es impar. Al final, devuelve el valor final 
+//ejemplo
+//diferenciaParesEImpares([5,1,2,4]) //retorna 2(5-1+2-4)
+//diferenciaParesEImpares([9,5]) //retorna 4
+//diferenciaParesEImpares([1,2,3,4,5,6]) //retorna -3
+//diferenciaParesEImpares([5]) //retorna 5
+
+function diferenciaParesEImpares(array) {
+    for (i = 0; i < array.length; i++) {
+
+    }
+}

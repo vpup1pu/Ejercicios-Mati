@@ -11,7 +11,7 @@
 
 //nota: notar que hace un recorrido por filas, esto es recorre la primera fila y imprime todos los elementos 
 //que la componen y luego pasa a la siguiente fila y repite el mismo proceso, hasta terminar de recorrer la 
-//matriz. El ejercicio consiste en completar la variable matriz para que se muetre por pantalla la 
+//matriz. El ejercicio consiste en completar la variable matriz para que se muestre por pantalla la 
 //salida de la matriz.
 
 //function recorrerMatriz(matriz){
@@ -26,7 +26,16 @@
 //3
 //4
 
-function recorrerMatriz(matriz) {}
+function recorrerMatriz(matriz) {
+    for (let i = 0; i < matriz.length; i++) {
+        var fila = ' ';
+        for (let j = 0; j < matriz[i].length; j++) {
+        fila = fila + ' ' + matriz[i][j];
+        }
+        console.log(fila);
+    }
+}
+
 
 //Ejercicio 2
 //Crear una funcion llamada recorrerMatriz que imprimira por pantalla todos los elementos de la matriz

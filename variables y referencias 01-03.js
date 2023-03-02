@@ -56,15 +56,15 @@
 //En cambiarPares2(), la funcion crea un nuevo array llamado devolver y le agrega ! si el elemento del array
 //ingresado por parametro es par, o el mismo elemento si es impar. Al final devuelve el array devolver.
 // ¿que devuelven los console.log()? 
-// console.log(cambiarPares2(arreglo)); -> devuelve el arreglo devolver (arreglo nuevo)
-// console.log(arreglo); -> devuelve el arreglo original (el que entra por parametro)
-// console.log(cambiarPares(arreglo)); -> devuelve el arreglo modificado 
-// console.log(arreglo); -> devuelve el ultimo estado del arreglo
+// console.log(cambiarPares2(arreglo)); -> devuelve [1, !, 3, !, 5]
+// console.log(arreglo); -> devuelve [1, 2, 3, 4, 5]
+// console.log(cambiarPares(arreglo)); -> devuelve [1, !, 3, !, 5] 
+// console.log(arreglo); -> devuelve [1, !, 3, !, 5]
 
-//Si por ejemplo estuvieran alreves, 
-//console.log(arreglo); -> devuelve el arreglo ingresado por parametro
-// console.log(cambiarPares(arreglo)); -> devuelve el arreglo original pero modificado
-// console.log(arreglo); -> devuelve el ultimo estado del arreglo
+//Si por ejemplo estuvieran al reves, 
+//console.log(arreglo); -> devuelve [1, 2, 3, 4, 5]
+// console.log(cambiarPares(arreglo)); -> [1, !, 3, !, 5]
+// console.log(arreglo); -> devuelve [1, !, 3, !, 5]
 
 // ¿por qué es importante entender el paso por referencia?
 //En la funcion cambiarPares2, solo hace una sola referencia para usar el arreglo que entra por parametro.
@@ -73,3 +73,8 @@
 //Creo que lo importante es no perder la referencia del objeto original, en estas funciones sencillas 
 //pareciera que no hay diferencia pero en una mas compleja, donde solo ingrese un dato, funciones que 
 //creen nuevas referencias (como cambiarPares2()) no servirian. 
+
+//Por Mati uwu: Con el tema de la importancia de las referencia es que podes hacer cagadas si no lo tenes 
+//en cuenta, si vos modificas un array por referencia (como la primera funcion de los ejercicios) dsp no 
+//podes usar mas ese arreglo porque fue modificado (a menos que sea tu idea). Un buen principio es hacer 
+//una copia de ese arreglo y dsp trabajar con el

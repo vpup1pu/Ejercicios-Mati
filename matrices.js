@@ -26,16 +26,12 @@
 //3
 //4
 
-function recorrerMatriz(matriz) {
-    for (let i = 0; i < matriz.length; i++) {
-        var fila = ' ';
-        for (let j = 0; j < matriz[i].length; j++) {
-        fila = fila + ' ' + matriz[i][j];
-        }
-        console.log(fila);
-    }
+function recorrerMatriz1(matriz) {
+
 }
 
+matriz = [[1,2], [3,4]];
+console.log(recorrerMatriz1(matriz));
 
 //Ejercicio 2
 //Crear una funcion llamada recorrerMatriz que imprimira por pantalla todos los elementos de la matriz
@@ -74,4 +70,20 @@ function recorrerMatriz(matriz) {
 //6
 //9
 
-function recorrerMatriz(matriz,valor) {}
+function recorrerMatriz(matriz,valor) {
+    if (valor === true) {
+        for (let i = 0; i < matriz.length; i++) {
+            for (let j = 0; j < matriz[i].length; j++) {
+            console.log(matriz[i][j]);
+            }
+        }
+    }
+    if (valor === false) {
+        for (let i = 0; i < matriz.length; i++) {
+            for (let j = 0; j < matriz[i].length; j++) {
+                console.log(matriz[j][i]);
+            }
+        }
+    }
+}
+recorrerMatriz([[1,2], [4,5]],false)

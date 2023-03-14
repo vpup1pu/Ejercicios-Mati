@@ -22,8 +22,8 @@ if(numero1<numero2) {
 if(numero2>0) {
   console.log("numero2 es positivo");
 }
-if(numero1<0) {
-  console.log("numero1 es negativo o distinto de cero"); //no tiene sentido, cualquier num que no sea 0 va a ser distinto de cero. Si entra un positivo, ya cumpliria la condicion
+if(numero1<0 || numero1 !== 0) {
+  console.log("numero1 es negativo o distinto de cero"); 
 }
 if(numero1+1<numero2) {
   console.log("Incrementar en 1 unidad el valor de numero1 no lo hace mayor o igual que numero2");
@@ -43,21 +43,21 @@ c)
 var numero1 = 2;
 var numero2 = -1;
 
-if(...) {  // (...) es la condicion del punto anterior
+if(numero1<numero2) {  // (...) es la condicion del punto anterior
   console.log("numero1 no es mayor que numero2");
 }
-else if(...) { 
+else if(numero2>0) { 
   console.log("numero2 es positivo");
 }
-if(...) {
+if(numero1<0 || numero1 !== 0) {
   console.log("numero1 es negativo o distinto de cero");
 }
-else if(...) { 
+else if(numero1+1<numero2) { 
   console.log("Incrementar en 1 unidad el valor de numero1 no lo hace mayor o igual que numero2");
 }
 
 //respuesta
-undefined
+numero 1 es negativo o distinto de cero
 
 2)
 
@@ -260,7 +260,7 @@ Ejercicio para completar a mano:
 
 a = [ [10, 20],
       [30, 40] ];
-console.log(valorColumna(a)); // COMPLETAR SALIDA-> [ , ]
+console.log(valorColumna(a)); // COMPLETAR SALIDA-> [ 40, 60]
 
 Nota: 
 1)No hacer de memoria el recorrido por columna, pensar la estrategia para avanzar en la columna y luego pasar a la anterior 

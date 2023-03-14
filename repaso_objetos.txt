@@ -1,0 +1,413 @@
+Ejercicios Repaso B) Objetos
+
+Notas: 
+*Si se cree que hay algún error de sintaxis o ambigüedad de las preguntas, preguntar.
+*Los nombre de las propiedades y métodos al momento de crear el código deben ser exactamente igual a como se ponen en el enunciado.
+*Se deben testear siempre todos los ejercicios, desde la creación de los objetos y el correcto funcionamiento de TODOS sus métodos.
+*Se pueden hacer en Visual Studio Code, como también se pueden hacer en papel o bloc de notas aunque hay incisos en los que se pide dar una opinión de lo que va a pasar antes de que lo hagas en el IDE.
+*Cuando se imprima algún objeto (console.log(algunObjeto)) como ejemplo en este txt se obviara las propiedades que contienen funciones en la consola y simplemente se mostrara los atributos que contienen, para ahorrar espacio.
+*Leer completamente el ejercicio antes de preguntar.
+
+Nota:
+Hasta el ejercicio 6 crear las variables con la declaración let, ya que habrá ejercicios en que te resultara mas útil que esten de esta forma, puede que en algun punto en especifico se te pida que lo hagas con const.
+
+Ejercicio 1:
+
+Crear a través de forma rápida (uso de llaves) el objeto libro que contendrá las propiedades:
+titulo
+autor
+código
+tapa
+
+donde todos serán cadenas (string) y tapa REQUIERE que solo puede ser: 'blanda' o 'dura'.
+No contendrá ninguna método o propiedad que contenga una función.
+Puede asignar el valor que desee a las propiedades mientras sean coherente con el tipo de dato pedido.
+
+Ejercicio 2:
+a) 
+Crear una plantilla (una clase) para crear un objeto de clase Libro (contendrá las mismas propiedades que el punto anterior).
+Crear nuevamente la variable libro utilizando esta clase
+
+Ejemplo:
+let libro = new Libro('Ainhi','Mati','21451','dura');
+console.log(libro); // { 'titulo' : 'Ainhi' , 'autor' : 'Mati' , 'codigo' : '21451', 'tapa' : 'dura' }
+
+b)¿Qué es un constructor en la programación orientada a objetos? ¿Qué significa instanciar o crear una instancia de un objeto? ¿Cómo se logra esto? 
+c) ¿Para que sirve la palabra reservada this?
+d) ¿Es correcto este código? en caso negativo, ¿Qué esta mal?
+
+function Libro(){
+... //propiedades creadas antes
+
+esIgual(otroLibro){ //retorna true si este objeto es igual a otro libro
+	return this==this.otroLibro;}
+
+}//fin clase Libro.
+
+Ejercicio 3:
+a)
+Agregar las siguientes propiedades al OBJETO libro creado en el punto anterior: editorial , esNuevo y stock tal que editorial contendrá de valor un string, esNuevo contendrá un valor booleano y stock contendrá un valor entero positivo igual o mayor a 0. Los valores a asignar son a decisión propia.
+Imprimir el objeto libro en consola.
+
+Crear otro objeto de clase Libro llamado otroLibro.
+y imprimirlo por consola.
+¿Tienen la misma cantidad de propiedades? ¿son el mismo tipo de objeto? ¿tienen la misma referencia?
+
+investigar ¿Hay alguna forma de saber rápidamente la cantidad de propiedades que tiene un objeto?
+
+b)
+Modificar la CLASE Libro y agregar las propiedades editorial , esNuevo y stock, tal que editorial contendrá de valor un string, esNuevo contendra un valor booleano y stock contendra un valor entero positivo igual o mayor a 0.
+
+volver a crear libro y otroLibro. Imprimirlos en la consola
+
+Ejercicio 4:
+Agregar propiedad: soloExisteAca con el valor true al OBJETO 'otroLibro'
+
+imprimir en la consola:
+
+console.log(libro.soloExisteAca);
+console.log(otroLibro.soloExisteAca);
+
+¿Qué sale en el primer console.log? ¿y en el segundo? ¿por qué?
+
+Ejercicio 4b: sin usar el visual studio, contestar: 
+const libro = new Libro('Ainhi','Mati','21451','dura');
+const otroLibro = new Libro('Ainhi','Mati','21451','dura','EDITORIAL X',true,2);
+console.log(libro);
+console.log(otroLibro); 
+¿Qué sucede con las propiedades que no se agregaron en libro -editorial, esNuevo,etc-? ¿tira error?
+
+Luego:
+¿que pasa si realizas la siguiente asignación?
+libro = otroLibro; ¿se puede?
+
+c)
+¿Qué sucedería si en vez de declararlo con la variable const lo declaro con let? 
+let libro = new Libro('Ainhi','Mati','21451','dura');
+let otroLibro = new Libro('Ainhi','Mati','21451','dura','EDITORIAL X',true,2);
+libro = otroLibro; ¿se puede?¿por qué?
+
+Probar ahora en Visual Studio una vez respondido las preguntas, ¿por que sucede esto?
+(nota si ejecutas luego de crear const libro -inciso anterior- el let libro va a tirar error, comentar o cambiar por el momento const por let )
+
+Nota: volver a crear de nuevo los objetos con let para seguír con los demas ejercicios.
+
+Ejercicio 5:
+Agregar el método estado() al OBJETO libro, el cual imprimirá por pantalla 'usado' si no esta nuevo y 'nuevo' si esNuevo es igual true
+
+sin usar el visual studio: 
+¿que devuelve las siguientes sentencias?:
+console.log(libro.estado());
+console.log(otroLibro.estado());
+
+Una vez respondido esto, probar en visual studio. ¿Por qué piensas que devuelve ese mensaje otroLibro?
+
+Ejercicio 6:
+Volver a crear el método estado() con el mismo funcionamiento pero esta vez utilizando el método prototype de Object para modificar la CLASE Libro
+
+ahora:
+sin usar el visual studio: que devuelve:
+console.log(libro.estado());
+console.log(otroLibro.estado());
+
+Probar ahora en visual studio y responder:
+¿Por qué sucede esto? 
+
+Herencia: 
+Dado el siguiente código:
+
+clase A(numero){
+	this.a = numero;
+	this.saludar = function() 
+		{return 'hola! soy A';}
+}//fin clase A
+
+clase B(numero,letra){
+	A.call(this,numero);  
+	this.b = letra;
+}// fin clase B
+
+¡Notar que PRIMERO se llama al metodo call() en la clase B para obtener todas las propiedades de la clase A y luego se asignan las nuevas propiedades.
+Luego de hacer uso del método call() se dice que la clase B hereda todos las propiedades de la clase A y además la clase B EXTIENDE a la clase A.
+También notar que call() hace referencia al objeto A, si se quiere generar la herencia hay que hacerlo con la clase a heredar.
+
+Pregunta: 
+¿Por qué se dice que la clase B extiende a la clase A?
+¿Por qué en la siguiente sentencia de la clase B se pasa como parámetro this?
+sentencia: A.call(this,numero); 
+
+Ejemplo de creación de clase A y B
+const a = new A(1);
+const b = new B(1,'s');
+console.log(b); // {'a' : 1 , 'b': s} //notar que ahora tiene una nueva propiedad llamada 'b'
+console.log(a); // {'a' : 1} 
+console.log(b.saludar()); //retorna: ... completar
+
+La clase B es Hija de la clase A
+La clase A es Padre de la clase B
+
+Ejercicio:
+Crear una clase llamada C que hereda todas las propiedades de B y que contiene como atributo 'c' que es un booleano que se inicializa en true
+además C redefinirá el método saludar() que ahora retornará una cadena que dice 'Hola! soy C'
+
+responder sin usar la computadora que sucede con el siguiente código:
+const a = new A(2);
+const b = new B(5,'s');
+const c = new C(1,'holi');
+
+console.log(a.a); //respuesta: 
+console.log(b); //respuesta: 
+console.log(c.b); //respuesta: 
+console.log(c.c===false); //respuesta: 
+console.log(a.b); //respuesta: 
+console.log(a.saludar()); //respuesta: 
+console.log(c.saludar()); //respuesta: 
+console.log(b.saludar()); //respuesta: 
+
+Nota: Ahora a la clase A se la conoce como super clase, ya que es padre de la clase B y B es padre de la clase C
+
+Clases ES6
+Leer el capitulo 6 y 7 del siguiente link:
+https://www.adictosaltrabajo.com/2018/05/15/es6-el-remozado-javascript-parte-iii-clases-y-otras-novedades-del-lenguaje/
+
+Ejercicio:
+a)Crear una clase Libro con todas las propiedades y métodos creados hasta ahora pero con un estándar ES6.
+b)Crear las clases A, B y C con el estandar ES6 con el mismo funcionamiento que el punto anterior.
+
+Ejercicio 7:
+Crear una clase llamada Trabajo que representará un lugar de trabajo por lo tanto la clase se instanciará con las siguientes propiedades :
+empresa : Será de tipo string y representara el nombre de la empresa
+dirección : Será de tipo string y representara su dirección física
+teléfono : Será de tipo string y representara el numero de teléfono de la empresa
+
+Métodos:
+No contiene ninguno
+
+Ejemplo de creación:
+trabajo = new Trabajo('UNS','Av. Alem 1200','+5429124521');
+console.log(trabajo)//retorna: {'empresa' : 'UNS', 'dirección' : 'Av. Alem 1200', 'teléfono' : '+5429124521'}
+
+Ejercicio 8: 
+Crear una clase llamada Sanción que se instancia con las siguientes propiedades:
+fecha : será de tipo String
+razón : será de tipo String
+
+Métodos:
+leer() : retornara un string de la siguiente forma: 'Sancionado el día: {fecha de la sanción} causa: {razón de la sanción}'
+
+Ejemplo de creación:
+sancion = new Sancion('08/03/2023','Ausencia en el trabajo');
+console.log(sancion.leer()); //retorna: 'Sancionado el día: 08/03/2023 causa: Ausencia en el trabajo'
+
+Ejercicio 9: 
+Crear una clase llamada Mensaje que se instanciará con las siguientes propiedades:
+fecha : representa la fecha en que se envió el mensaje, es de tipo string
+ID : representa el identificador del que envió el mensaje, es de tipo string
+mensaje : representa el contenido de un mensaje, es de tipo string
+
+Métodos:
+leer() : retorna un string con el mensaje de la siguiente forma: '{fecha del mensaje} ID: {id del que envió el mensaje} envió: {mensaje enviado}'
+
+Ejemplo de creación:
+mensaje = new Mensaje('14/3/2013','A111','Pedido de Aumento del 0.5%');
+console.log(mensaje) //retorna {'ID' : 'A111' ,'mensaje' : 'Pedido de Aumento del 0.5%' ,'fecha' : '4/3/2013'}
+console.log(mensaje.leer()) //retorna: '14/3/2013 ID: A111 envió: Pedido de Aumento del 0.5%'
+
+Ejercicio 10:
+Se debe probar TODAS las clases y todos sus métodos (si tienen), deben funcionar correctamente. 
+
+Ejercicio 11:
+A partir de este momento se van a utilizar las clases creadas recientemente (Trabajo, Sanción, Mensaje).
+Por lo tanto se debe tener las clases en el mismo lugar y ya testeadas al resolver los siguientes ejercicios.
+
+Nota: si necesitas crear algún método que no este especificado en los ejercicios de abajo, podes hacerlo, lo único que se va a pedir es que agregues un guión bajo al inicio del nombre del método.
+Por ejemplo, en la clase Mensaje -ejercicio anterior- no esta especificado un método que indique si el mensaje esta vacio (simplemente se especifico que existe el método leer()) pero por alguna decisión propia necesitas/queres hacerlo, poder crear el método con el siguiente nombre: _estaVacio()
+
+a)
+Crear una clase llamada Persona que se instancie con las siguientes propiedades:
+'nombre' : representara el nombre de la persona y será de tipo string
+'apellido' : representara el apellido de la persona y será de tipo string 
+'DNI' : será el documento único que representara a la persona y será de tipo numero
+'edad' : representa la edad de la persona y será de tipo numero
+'fechaNacimiento' : será la fecha de nacimiento de la persona y será de tipo String
+'direccion' : representara la dirección física de la persona y será de tipo string
+'telefono' : representara un numero de teléfono de la persona y será de tipo string
+'experienciaLaboral' : representara la experiencia laboral de una persona y será un arreglo, el cual cada elemento del mismo será un string con la descripción de alguna experiencia laboral
+
+Métodos:
+saludar() : retornara un mensaje que dice 'Hola soy {nombre_persona}!'
+mostrarExperiencia() : retornará el arreglo experienciaLaboral de la persona
+sumarExperiencia(experiencia) : recibe por parámetro un String que será agregado al final de la propiedad experienciaLaboral
+
+Ejemplo al crear una persona y probar sus métodos:
+
+const p1 = new Persona('Mati','Alvarez','123',25,'02/09/1997','abc 123','+99 1245111',[]);
+console.log(p1); //retornara {nombre: 'Mati', apellido: 'Alvarez', DNI: '123', edad: 25, fechaNacimiento: '02/09/1997', …}
+console.log(p1.saludar()) // retorna: 'hola! soy: Mati!'
+console.log(p1.mostrarExperiencia()); //retorna: []
+p1.sumarExperiencia('Profesor js'); 
+console.log(p1.mostrarExperiencia()); //retorna: ['Profesor js']
+
+b)
+Crear una clase llamada Personal que contendrá un único atributo que será un arreglo donde cada elemento serán personas
+Por lo tanto la clase Personal se instanciara con la siguiente propiedad: 'personal'.
+
+Métodos:
+agregarPersonal(persona): 
+El método recibe por parámetro una persona y debe ser asignada al final de la lista personal. Debe corroborar que la persona no se encuentra en el personal
+
+buscarPersonal(persona):
+El método recibe por parámetro una persona y buscará (por alguna característica única de la persona) en que posición del arreglo se encuentra, en caso
+de no encontrar debe devolver -1 para decir que no se encontró y en caso de encontrarlo debe devolver en que posición del arreglo esta.
+
+eliminarPersonal(persona,posicion):
+Recibe dos parámetros, el primero será un objeto persona la que habrá que eliminar del personal y el segundo la posición.
+Posición puede ser null o undefined que indicara que no se sabe donde esta el personal buscado y por lo tanto se deberá encontrar. 
+Posición también puede ser un entero que indica en que posición se encuentra la persona en el arreglo(se asumirá que si posición no es null o undefined entonces es la posición exacta donde se encuentra la persona en el personal)
+Si la persona no se encuentra no hacer nada.
+
+nota: investigar de que formas se pueden borrar elementos de un array para resolver este ejercicio
+
+c)
+Crear una clase llamada Empleado que heredará todas las propiedades y métodos de la clase Persona
+y además deberá ser instanciado con las siguientes propiedades:
+'trabajo' : tendrá como valor un objeto de clase Trabajo y representara donde trabaja el empleado
+'función' : representa el rol que tiene en el trabajo , es de tipo strng
+'salario' : representa el salario del puesto y será un valor numérico
+'ingreso' : fecha de ingreso al trabajo, es de tipo string
+'ID' : ID de empleado, es de tipo string
+'sanciones' : es un arreglo que contendrá objetos de tipo Sancion, que se iniciliazara vacio
+
+Métodos:
+sinTrabajo() : 
+Hace que el empleado se quede sin trabajo, por lo tanto debe modificar los atributos:
+trabajo, función, salario, ingreso, id a NULL
+
+tieneSanciones():
+Retorna si el empleado tiene sanciones, en caso que sea verdad retornará true, si no, false
+
+cantidadSanciones():
+Retorna la cantidad de sanciones que tiene el empleado
+
+obtenerSanciones(): retornara el arreglo sanciones
+
+leerSanciones():
+Mostrara por consola las sanciones del empleado, debe usarse el método leer() de la clase Sancion
+
+obtenerTrabajo(trabajo, funcion, salario, ingreso,ID):
+Debe asignar los parámetros a su correspondiente propiedad. Requiere que ningún parámetro sea NULL o undefined
+El historial de sanciones vuelve a cero
+
+NOTA:
+Para los siguientes métodos: Todavía no se creo la clase encargado, se puede saltear los siguientes métodos hasta crearla y volver para terminarlos luego. (Aun así no hace falta, podes definir los nombres y dejar el bloque del código vacío)
+
+pedirAumento(encargado, porcentaje, fecha):
+parámetro encargado es un objeto de tipo encargado 
+parámetro porcentaje es un numero que puede tener el siguiente rango: [0,1], si porcentaje es 0,5 entonces representa un aumento del 50% del salario
+
+Al pedirAumento() se crea un objeto mensaje y se lo envía al objeto encargado
+El objeto mensaje debe estar inicializado de la siguiente forma:
+ID debe contener el ID del empleado
+mensaje debe ser 'Pedido de Aumento del {porcentaje_pedido}%'
+fecha será la fecha pasada por el parámetro recibido 'fecha' 
+
+renunciar(encargado, fecha):
+Crea un objeto mensaje y se lo envía al (objeto) encargado, pasado por parámetro, avisando que va a renunciar y luego se queda sin trabajo (renuncia).
+el objeto mensaje debe estar inicializado de la siguiente forma:
+ID debe contener el ID del empleado
+mensaje debe ser 'Telegrama de renuncia'
+fecha será la fecha pasada por el parámetro recibido 'fecha' 
+
+recordar que se creo una función que hace que un empelado se quede sin trabajo
+
+d)
+Crear un encargado que hereda todos las propiedades y métodos de un empleado.
+Un encargado como cualquier otro empleado tiene un ID de empleado pero a su vez ahora tendrá un ID de encargado, también un encargado tiene un personal a su mando, otra de sus responsabilidades es recibir mensajes de otros empleados u otros encargados, si es que los hay.
+También puede contratar y despedir personal, puede aumentar o cambiar salarios y a su vez puede sancionar a algún empleado
+Puede recibir mensajes de su personal que puede ser un aumento de sueldo por algún porcentaje solicitado o puede
+también puede recibir un mensaje de que un empleado renuncio.
+
+La clase Encargado tendrá las siguientes propiedades propias:
+ID_encargado : será un ID especifico para el encargado, debe ser un String
+personal : será un objeto de tipo Personal
+mensajesDelPersonal : que será un arreglos el cual sus elementos serán objetos de tipo Mensaje y será 
+inicializado en un arreglo vacío
+
+Métodos:
+saludar() : Retorna 'hola! soy: {nombre_encargado}! y soy {funcion_encargado} 
+                en {nombre_empresa} y estoy aqui desde {fechaIngreso_encargado}';
+
+despedir(empleado):
+Despide a una empleado que es parte del personal, antes de despedirlo debe verificar que es un empleado que esta bajo su mando
+Despedir un empleado significa que no forma mas parte del personal y que ese empleado ahora ya no tiene trabajo
+
+contratar(empleado, trabajo, funcion, salario, ID):
+Contrata a un empleado, debe agregar a la persona al personal, además el empleado debe actualizar sus propiedades (ya que consiguió trabajo)
+
+darAumento(empleado,porcentaje):
+Aumenta el salario de un empleado según el porcentaje pasado por parámetro llamado porcentaje
+
+cambiarSalario(empleado,salario):
+cambia el salario de un empleado por el salario pasado por parámetro
+
+sancionar(empleado, sancion):
+recibe un objeto empleado y un objeto sancion, el método aplica la sancion al historial de sanciones del empleado recibido por parámetro
+
+recibirMensaje(mensaje):
+el método almacena el mensaje en mensajesDelPersonal
+
+hayMensajes():
+retorna true si el encargado tiene mensajes almacenados, caso contrario retorna false
+
+leerMensajes():
+imprime por pantalla todos los mensajes que tiene el encargado
+No retorna ni modifica nada
+
+
+Ejercicio 12:
+Corroborar que las clases trabajen bien entre ellas, implementar lo siguiente (primero a mano y luego en el Visual Studio): 
+nota: puede instanciar con cualquier valor que desee mientras los valores sean correctos para cada propiedad en especifico.
+
+Crear 4 empleados llamados Ainhi, Mati, Aki y Imanol.
+Crear un personal donde se encuentren estos 4 empleados en cualquier orden.
+Crear un encargado llamado Jesus.
+Despedir a Mati.
+Ainhi pide un aumento del 30%.
+Contratar a Mati.
+Aki renuncia.
+Sancionar a Mati por llegar tarde.
+Obtener cantidad de personal a mando del encargado.
+Leer los mensajes del encargado.
+Aumentar el salario de ainhi en un 15%.
+Mati Saluda.
+Ainhi Saluda.
+Encargado Saluda.
+Encargado sanciona a Ainhi por llegar tarde.
+Encargado sanciona a Imanol por dormirse en el trabajo.
+Obtener cantidad de sanciones de todo el personal.
+
+Ejercicio 13:
+¿Cómo se comunican los objetos entre si en la Programación Orientada a Objetos?
+¿De que nos sirve la herencia?
+¿Cómo hacemos para que una clase herede de otra sus propiedades y métodos?
+¿Qué es el polimorfismo? ¿se utilizo en algún momento?
+
+Ejercicio 14: 
+Investigar: 
+¿Qué es un diagrama de clase en la programación orientada a objetos? 
+¿Para que sirve?
+¿Cómo se gráfica una clase en este diagrama?
+¿Cómo se especifica la herencia en un diagrama de clases?
+
+Ejercicio 15:
+Crear el diagrama de las clases A, B y C de la ejercitación de herencia.
+
+Ejercicio 16: Investigar
+¿Que significa en javascript y la programación orientada a objetos?:
+*Copia superficial y en profundidad
+*Clonación superficial y en profundidad 
+
+¿Como se lleva a cabo cada caso?
+
+
+
